@@ -42,7 +42,11 @@ var Player = function() {
   this.y = 375;
 };
 
-Player.prototype.update = function() {};
+Player.prototype.update = function() {
+  if (this.y == -40) {
+    this.reset();
+  }
+};
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -72,6 +76,11 @@ Player.prototype.handleInput = function(keyPressed) {
       break;
   }
 };
+
+Player.prototype.reset = function() {
+  this.x = 202;
+  this.y = 375;
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
