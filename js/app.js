@@ -8,7 +8,7 @@ var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
 
     // Enemy initial location
-    this.x = Math.ceil(Math.random()* (-1000 + 101)) + 101;
+    this.x = Math.floor(Math.random() * (1000 - 101) - 1000);
     this.y = 83 * Math.floor(Math.random() * 3 + 1) - 24;
 
     // Enemy initial speed
@@ -22,7 +22,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     if (this.x > 606) {
-      this.x = Math.ceil(Math.random()* (-1000 + 101)) + 101;
+      this.x = Math.floor(Math.random() * (1000 - 101) - 1000);
     } else {
       this.x += this.speed * dt;
     }
@@ -42,7 +42,7 @@ var Player = function() {
   this.y = 375;
 };
 
-Player.prototype.update = function () {};
+Player.prototype.update = function() {};
 
 Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
