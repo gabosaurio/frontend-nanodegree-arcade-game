@@ -25,6 +25,9 @@ Enemy.prototype.update = function(dt) {
       this.x = Math.floor(Math.random() * (1000 - 101) - 1000);
     } else {
       this.x += this.speed * dt;
+    };
+    if (this.x + 75 >= player.x && this.x <= player.x + 75 && this.y - player.y == 16) {
+      player.reset();
     }
 };
 
