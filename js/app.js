@@ -48,6 +48,31 @@ Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+Player.prototype.handleInput = function(keyPressed) {
+  switch (keyPressed) {
+    case "left":
+      if (this.x > 0) {
+        this.x -= 101;
+      }
+      break;
+    case "right":
+      if (this.x < 404) {
+        this.x += 101;
+      }
+      break;
+    case "up":
+      if (this.y > 0) {
+        this.y -= 83;
+      }
+      break;
+    case "down":
+      if (this.y < 375) {
+        this.y += 83;
+      }
+      break;
+  }
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
