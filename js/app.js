@@ -21,11 +21,15 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // If enemy moves off screen reset position
     if (this.x > 606) {
       this.x = Math.floor(Math.random() * (1000 - 101) - 1000);
     } else {
       this.x += this.speed * dt;
     };
+
+    // Handle collision
     if (this.x + 75 >= player.x && this.x <= player.x + 75 && this.y - player.y == 16) {
       player.reset();
     }
@@ -46,6 +50,7 @@ var Player = function() {
 };
 
 Player.prototype.update = function() {
+  // When player reaches top row reset position
   if (this.y == -40) {
     this.reset();
   }
